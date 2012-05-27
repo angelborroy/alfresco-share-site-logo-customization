@@ -1,0 +1,8 @@
+<webscript>
+  <shortname>Site Logo Upload</shortname>
+  <description>Upload site logo file content</description>
+  <format default="json" />
+  <transaction>required</transaction>
+  <url>/slingshot/application/uploadsitelogo/site/{site}</url>
+  <lifecycle>internal</lifecycle>
+</webscript>
