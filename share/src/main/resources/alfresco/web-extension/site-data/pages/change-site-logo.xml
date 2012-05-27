@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<page>
+   <title>Site Logo</title>
+   <title-id>page.siteLogo.title</title-id>
+   <description>Site Logo Customization</description>
+   <description-id>page.siteLogoCustomization.description</description-id>
+   <template-instance>change-site-logo</template-instance>
+   <authentication>admin</authentication>
+   <components>
+
+      <!-- Title -->
+      <component>
+         <region-id>title</region-id>
+         <url>/components/title/admin-console</url>
+      </component>
+
+   </components>
+</page>
