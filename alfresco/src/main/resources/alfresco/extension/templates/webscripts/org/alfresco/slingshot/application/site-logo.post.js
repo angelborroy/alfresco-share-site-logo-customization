@@ -13,10 +13,8 @@ function main()
 	  
       var filename = "site_logo";
       var content = null;
-      var site = url.templateArgs.site;
-      
-      logger.log("Site: " + site);
-      
+      var siteId = url.templateArgs.siteId;
+
       // locate file attributes
       for each (field in formdata.fields)
       {
@@ -27,8 +25,6 @@ function main()
          }
       }
       
-      logger.log("got content");
-      
       // ensure all mandatory attributes have been located
       if (content == undefined)
       {
@@ -38,26 +34,28 @@ function main()
          return;
       }
       
-      logger.log("good content");
-      
-      logger.log("site: " + site);
-      var siteNode = siteService.getSite(site);
-      logger.log(siteNode);
-      if (siteNode == null) {
+      var site = siteService.getSite(siteId);
+      if (site == null) {
     	  status.code = 500;
     	  status.message = "Failed to find site";
     	  stauts.redirect = true;
     	  return;
       }
       
-      logger.log("got site node");
+      var logoNode = null;
+      logoNode = site.node.childByNamePath(filename);
+      if (logoNode == null) {
+    	  logoNode = site.node.createNode(filename, "cm:content");
+          logoNode.properties.content.write(content);
+          logoNode.properties.content.guessMimetype(filename);
+          logoNode.save();
+      } else {
+    	  logoNode.properties.content.write(content);
+    	  logoNode.properties.content.guessMimetype(filename);
+    	  logoNode.save();
+      }
       
-      logoNode = siteNode.createNode(filename, "cm:content");
-      logoNode.properties.content.write(content);
-      logoNode.properties.content.guessMimetype(filename);
-      logoNode.save();
-      
-      logger.log("saved node");
+      logger.log("logo changed")
       
       // save ref to be returned
       model.logo = logoNode;

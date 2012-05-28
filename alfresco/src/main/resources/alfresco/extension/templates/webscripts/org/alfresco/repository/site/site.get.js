@@ -12,6 +12,7 @@ function main()
       model.site = site;
       var siteLogo = site.node.childByNamePath("site_logo");
       if (siteLogo != null) {
+    	  logger.log("Found site logo: " + siteLogo.nodeRef);
     	  model.siteLogo = siteLogo;
       }
    }
