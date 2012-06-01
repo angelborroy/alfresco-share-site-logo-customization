@@ -52,8 +52,9 @@
 	],
 	</#if>
 	"isPublic": ${site.isPublic?string("true", "false")},
-	"visibility": "${site.visibility}"<#if siteLogo?? >,</#if>
-	"siteLogo": "<#if siteLogo??>${siteLogo.storeType}://${siteLogo.storeId}/${siteLogo.id}</#if>"
+	"visibility": "${site.visibility}"<#if siteLogo?? >,
+	"siteLogo": "${siteLogo.storeType}://${siteLogo.storeId}/${siteLogo.id}"
+	</#if>
 }
 </#escape>
 </#macro>

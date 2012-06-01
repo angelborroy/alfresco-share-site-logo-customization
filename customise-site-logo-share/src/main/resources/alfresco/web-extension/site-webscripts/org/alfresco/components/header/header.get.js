@@ -37,8 +37,10 @@ function getSiteTitle()
       siteLogo = "";
 
    var siteId = page.url.templateArgs.site || "";
-   if (siteId !== "")
+   if (siteId == "")
    {
+      siteLogo = context.getSiteConfiguration().getProperty("logo");
+   } else {
       result = remote.call("/api/sites/" + encodeURIComponent(siteId));
       if (result.status == 200 && result != "{}")
       {

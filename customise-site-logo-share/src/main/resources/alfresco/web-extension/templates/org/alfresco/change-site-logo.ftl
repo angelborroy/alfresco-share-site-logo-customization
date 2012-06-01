@@ -5,7 +5,8 @@
 <@templateBody>
    <div id="alf-hd">
       <@region id="header" scope="global" />
-      <@region id="title" scope="page" />
+      <@region id="title" scope="template" />
+      <h1 class="sub-title"><#if page.titleId??>${msg(page.titleId)!page.title}<#else>${page.title}</#if></h1>
    </div>
    
    <div id="bd">

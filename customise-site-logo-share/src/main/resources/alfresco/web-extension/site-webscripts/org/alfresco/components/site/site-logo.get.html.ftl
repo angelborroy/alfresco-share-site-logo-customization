@@ -20,7 +20,7 @@
    <!-- Options panel -->
    <div id="${el}-options" class="hidden">
       
-      <form id="${el}-options-form" action="${url.context}/service/components/console/application" method="post">
+      <form id="${el}-options-form" action="${url.context}/service/components/site-logo" method="post">
          
          <div class="title">${msg("label.options")}</div>
          
@@ -33,6 +33,7 @@
                <button id="${el}-reset-button" name="reset">${msg("button.reset")}</button>
                <div class="logonote">${msg("label.logonote")}</div>
                <input type="hidden" id="console-options-logo" value="" />
+               <input type="hidden" id="siteId" value="${page.url.templateArgs.site}" />
             </div>
          </div>
          

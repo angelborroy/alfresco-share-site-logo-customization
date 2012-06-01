@@ -1,9 +1,4 @@
-/**
- * Application Log Upload method
- * 
- * @method POST
- * @param filedata {file}
- */
+<import resource="classpath:/alfresco/extension/templates/webscripts/org/alfresco/repository/site/site.lib.js">
 
 function main()
 {
@@ -11,7 +6,7 @@ function main()
    {
 	  logger.log("Uploading new site logo");
 	  
-      var filename = "site_logo";
+      var filename = null;
       var content = null;
       var siteId = url.templateArgs.siteId;
 
@@ -20,6 +15,7 @@ function main()
       {
          if (field.name == "filedata" && field.isFile)
          {
+            filename = field.filename;
             content = field.content;
             break;
          }
@@ -43,17 +39,14 @@ function main()
       }
       
       var logoNode = null;
-      logoNode = site.node.childByNamePath(filename);
+      logoNode = site.node.childByNamePath(SITE_LOGO);
       if (logoNode == null) {
-    	  logoNode = site.node.createNode(filename, "cm:content");
-          logoNode.properties.content.write(content);
-          logoNode.properties.content.guessMimetype(filename);
-          logoNode.save();
-      } else {
-    	  logoNode.properties.content.write(content);
-    	  logoNode.properties.content.guessMimetype(filename);
-    	  logoNode.save();
+    	  logoNode = site.node.createNode(SITE_LOGO, "cm:content");
       }
+
+      logoNode.properties.content.write(content);
+      logoNode.properties.content.guessMimetype(filename);
+      logoNode.save();
       
       logger.log("logo changed")
       

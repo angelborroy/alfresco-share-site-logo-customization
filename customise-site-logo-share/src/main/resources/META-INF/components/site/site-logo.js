@@ -23,7 +23,7 @@
    /**
     * SiteLogo constructor.
     * 
-    * @param {String} htmlId The HTML id Ÿof the parent element
+    * @param {String} htmlId The HTML id ï¿½of the parent element
     * @return {Alfresco.SiteLogo} The new SiteLogo instance
     * @constructor
     */
@@ -65,7 +65,7 @@
             });
             parent.widgets.upload = Alfresco.util.createYUIButton(parent, "upload-button", this.onUpload);
             parent.widgets.reset = Alfresco.util.createYUIButton(parent, "reset-button", this.onReset);
-            
+
             // Form definition
             var form = new Alfresco.forms.Form(parent.id + "-options-form");
             form.setSubmitElements([parent.widgets.applyButton]);
@@ -80,7 +80,7 @@
             });
             form.init();
          },
-         
+
          /**
           * Successfully applied options event handler
           *
@@ -130,8 +130,8 @@
             // Show uploader for single file select - override the upload URL to use appropriate upload service
             var uploadConfig =
             {
-               flashUploadURL: "slingshot/application/uploadsitelogo/site/" + parent.options.siteId,
-               htmlUploadURL: "slingshot/application/uploadsitelogo/site/" + parent.options.siteId + ".html",
+               flashUploadURL: "/api/site-logo/site/" + parent.options.siteId,
+               htmlUploadURL: "/api/site-logo/site/" + parent.options.siteId + ".html",
                mode: this.fileUpload.MODE_SINGLE_UPLOAD,
                onFileUploadComplete:
                {

@@ -1,3 +1,5 @@
+<import resource="classpath:/alfresco/extension/templates/webscripts/org/alfresco/repository/site/site.lib.js">
+
 function main()
 {
    // Get the shortname
@@ -10,7 +12,7 @@ function main()
    {
       // Pass the site to the template
       model.site = site;
-      var siteLogo = site.node.childByNamePath("site_logo");
+      var siteLogo = getSiteLogo(site);
       if (siteLogo != null) {
     	  logger.log("Found site logo: " + siteLogo.nodeRef);
     	  model.siteLogo = siteLogo;

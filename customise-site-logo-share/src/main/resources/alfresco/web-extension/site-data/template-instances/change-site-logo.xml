@@ -2,6 +2,10 @@
 <template-instance>
    <template-type>org/alfresco/change-site-logo</template-type>
    <components>
+       <component>
+           <region-id>title</region-id>
+           <url>/components/title/collaboration-title</url>
+       </component>
       <component>
          <region-id>site-logo</region-id>
          <url>/components/site/site-logo</url>
