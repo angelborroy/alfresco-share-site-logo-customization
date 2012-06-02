@@ -32,7 +32,7 @@
                <button id="${el}-upload-button" name="upload">${msg("button.upload")}</button>&nbsp;
                <button id="${el}-reset-button" name="reset">${msg("button.reset")}</button>
                <div class="logonote">${msg("label.logonote")}</div>
-               <input type="hidden" id="console-options-logo" value="" />
+               <input type="hidden" id="site-options-logo" value="" />
                <input type="hidden" id="siteId" value="${page.url.templateArgs.site}" />
             </div>
          </div>

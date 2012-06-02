@@ -157,7 +157,7 @@
             logoImg.src = parent.options.defaultlogo;
             
             // set 'reset' value in hidden field ready for options form submit
-            Dom.get("console-options-logo").value = "reset";
+            Dom.get("site-options-logo").value = "reset";
          }
       });
       new OptionsPanelHandler();
@@ -185,7 +185,7 @@
             logoImg.src = Alfresco.constants.PROXY_URI + "api/node/" + noderef.replace("://", "/") + "/content";
             
             // set noderef value in hidden field ready for options form submit
-            Dom.get("console-options-logo").value = noderef;
+            Dom.get("site-options-logo").value = noderef;
          }
       }
    });

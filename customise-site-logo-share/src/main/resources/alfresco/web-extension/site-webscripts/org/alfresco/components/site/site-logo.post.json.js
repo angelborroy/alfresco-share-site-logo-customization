@@ -1,15 +1,15 @@
 function main()
 {
-      var logoId = json.get("console-options-logo");
+      var logoId = json.get("site-options-logo");
       var siteId = json.get("siteId");
+            
       if (logoId != null && (logoId = new String(logoId)).length != 0)
       {
-        if (logoId == "reset") {
-            var connection = remote.connect("alfresco");
-            var result = connection.del("/api/site-logo/site/" + encodeURIComponent(siteId));
-        }
+        var p = sitedata.getPage("site/" + siteId + "/dashboard");
+        p.properties.siteLogo = logoId != "reset" ? logoId.toString() : "";
+        p.save();            
       }
-
+      
       model.success = true;
 }
 

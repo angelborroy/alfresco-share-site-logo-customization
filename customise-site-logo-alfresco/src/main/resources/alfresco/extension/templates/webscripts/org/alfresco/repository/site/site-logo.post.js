@@ -1,4 +1,4 @@
-<import resource="classpath:/alfresco/extension/templates/webscripts/org/alfresco/repository/site/site.lib.js">
+var SITE_LOGO = "site_logo";
 
 function main()
 {

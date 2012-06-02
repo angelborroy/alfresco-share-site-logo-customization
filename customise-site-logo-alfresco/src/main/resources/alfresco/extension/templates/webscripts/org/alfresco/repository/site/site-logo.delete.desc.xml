@@ -1,9 +1,0 @@
-<webscript>
-    <shortname>Delete Site Logo</shortname>
-    <description>Delete site logo</description>
-    <format default="json" />
-    <transaction>required</transaction>
-    <url>/api/site-logo/site/{siteId}</url>
-    <authentication>user</authentication>
-    <runas>admin</runas>
-</webscript>

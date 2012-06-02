@@ -33,33 +33,23 @@ function getSiteTitle()
 {
    var siteTitle = "",
       result,
-      response,
-      siteLogo = "";
+      response;
 
    var siteId = page.url.templateArgs.site || "";
-   if (siteId == "")
+   if (siteId !== "")
    {
-      siteLogo = context.getSiteConfiguration().getProperty("logo");
-   } else {
       result = remote.call("/api/sites/" + encodeURIComponent(siteId));
       if (result.status == 200 && result != "{}")
       {
          response = eval('(' + result + ')');
          siteTitle = response.title;
-         siteLogo = response.siteLogo;
          if (typeof siteTitle != "string")
          {
             siteTitle = "";
          }
-         
-         if (typeof siteLogo != "string")
-         {
-        	 siteLogo = "";
-         }
       }
    }
    model.siteTitle = siteTitle;
-   model.logo = siteLogo;
 }
 
 /**
@@ -98,6 +88,24 @@ function getUserStatus()
 }
 
 /**
+ * Application logo override
+ */
+function getLogo()
+{
+   var logo = context.getSiteConfiguration().getProperty("logo");
+   var siteId = page.url.templateArgs.site || "";
+   if (siteId !== "") {
+      var p = sitedata.getPage("site/" + siteId + "/dashboard");
+      var siteLogo = p.properties.siteLogo;      
+      if (siteLogo !== null && typeof siteLogo !== "undefined" && siteLogo.length !== 0) {
+          logo = siteLogo;
+      }
+   }
+   
+   model.logo = logo;
+}
+
+/**
  * License usage warnings and errors
  */
 function getLicenseInfo()
@@ -132,6 +140,7 @@ function main()
    getSiteTitle();
    getHeader();
    getUserStatus();
+   getLogo();
    getLicenseInfo();
 }
 
