@@ -12,6 +12,7 @@
 	<modules>
 		<module>customise-site-logo-alfresco</module>
 		<module>customise-site-logo-share-3</module>
+        <module>customise-site-logo-share-41-ent</module>
 		<module>customise-site-logo-share-42</module>
 	</modules>
 </project>
