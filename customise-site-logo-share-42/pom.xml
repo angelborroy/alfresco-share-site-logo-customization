@@ -9,7 +9,7 @@
 		<version>2.0-SNAPSHOT</version>
 	</parent>
 	
-	<artifactId>customise-site-logo-share</artifactId>
+	<artifactId>customise-site-logo-share-42</artifactId>
 	<packaging>jar</packaging>
 	
 	<build>
