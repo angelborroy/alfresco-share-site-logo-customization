@@ -8,7 +8,9 @@ if (siteConfig != null) {
 		name : "alfresco/menus/AlfMenuItem",
 		config : {
 			id : "HEADER_CUSTOMIZE_SITE_LOGO",
-			label : "customize_site_logo.label",
+			label : "link.changeSiteLogo",
+			title: "link.changeSiteLogo",
+            iconAltText: "link.changeSiteLogo",
 			iconClass : "alf-cog-icon",
 			targetUrl : "site/" + page.url.templateArgs.site
 					+ "/change-site-logo"
