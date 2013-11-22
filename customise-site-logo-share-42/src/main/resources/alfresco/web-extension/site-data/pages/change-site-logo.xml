@@ -5,5 +5,5 @@
    <description>Site Logo Customization</description>
    <description-id>page.siteLogoCustomization.description</description-id>
    <template-instance>change-site-logo</template-instance>
-   <authentication>admin</authentication>
+   <authentication>user</authentication>
 </page>
